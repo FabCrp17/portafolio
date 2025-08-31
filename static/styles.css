@@ -3,28 +3,57 @@ html{
     scroll-behavior: smooth;
 }
 
+#particles-js {
+  position: absolute;   
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: -1;         
+}
 
+#section-0 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+section {
+  position: relative;
+  min-height: 100vh;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 1s ease;
+  z-index: 2;
+}
+
+section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 header {
     width: 100%;
-    height: 100vh; /* Hace que el header tenga al menos el tamaño completo de la pantalla */
+    height: 100vh;
 }
 
 .header-container {
-    height: 750px;
+    height: 100vh;
+    width: 100%;
     background-size: cover;
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-repeat: no-repeat; 
 }   
 
 .navbar {
-    background-color: rgba(255, 255, 255, 0); /* Blanco semi-transparente */
+    background-color: rgba(255, 255, 255, 0); 
 }
 
 .texto-gradient {
     background: linear-gradient(45deg, #79ddff, #4ac0f3, #00a4e1);
-    -webkit-background-clip: text; /* Clip del background solo al texto */
-    -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el gradiente */
-    background-clip: text; /* Para navegadores que soportan estándar */
-    color: transparent; /* Por seguridad, texto transparente en navegadores que no usan WebKit */
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text; 
+    color: transparent; 
     font-weight: bold;
 }
 
@@ -32,54 +61,54 @@ header {
 
 .container-typing {
     animation: 
-        animacion 2.9s steps(35) infinite alternate, /* Repetir la animación constantemente */
-        trasparent 0.5s step-end infinite alternate; /* Animación del cursor */
+        animacion 2.9s steps(35) infinite alternate, 
+        trasparent 0.5s step-end infinite alternate; 
     width: 12.1em;
     white-space: nowrap;
     overflow: hidden;
-    font-weight: bold; /* Grosor del texto */
-    background: linear-gradient(45deg, #79ddff, #4ac0f3, #00a4e1); /* Degradado */
-    -webkit-background-clip: text; /* Recorta el fondo al texto */
-    -webkit-text-fill-color: transparent; /* Texto transparente */
-    background-clip: text; /* Fallback para navegadores modernos sin prefijos */
+    font-weight: bold; 
+    background: linear-gradient(45deg, #79ddff, #4ac0f3, #00a4e1); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text; 
     font-size: 60px;
 }
 
 @keyframes animacion {
     from {
-        width: 0px; /* Comienza con el ancho en 0 */
+        width: 0px; 
     }
     to {
-        width: 12.1em; /* Ancho total del texto */
+        width: 12.1em; 
     }
 }
 
 @keyframes trasparent {
     50% {
-        border-color: transparent; /* Parpadeo del cursor */
+        border-color: transparent; 
     }
 }
 
 @media (max-width: 768px) {
   .container-typing {
-    animation: none;          /* ❌ Sin animación */
-    white-space: normal;      /* ✅ Permite saltos de línea */
-    overflow: visible;        /* ✅ Muestra todo el texto */
-        /* ✅ Más chico en móviles */
-    border: none;             /* ❌ Sin cursor */
-    width: auto;              /* ✅ Muy importante: deja que se expanda */
-    max-width: 88%;          /* ✅ Que use el ancho de pantalla */
-    line-height: 1.4;         /* ✅ Mejor legibilidad */
-    text-align: start;       /* Opcional: centrar texto en móviles */
+    animation: none;        
+    white-space: normal;    
+    overflow: visible;     
+        
+    border: none;            
+    width: auto;            
+    max-width: 88%;         
+    line-height: 1.4;        
+    text-align: start;      
     
   }
 
   .texto-gradient {
     background: linear-gradient(45deg, #79ddff, #4ac0f3, #00a4e1);
-    -webkit-background-clip: text; /* Clip del background solo al texto */
-    -webkit-text-fill-color: transparent; /* Hace el texto transparente para mostrar el gradiente */
-    background-clip: text; /* Para navegadores que soportan estándar */
-    color: transparent; /* Por seguridad, texto transparente en navegadores que no usan WebKit */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    background-clip: text; 
+    color: transparent; 
     font-size: 25px !important;
     font-weight: bold;
     }
@@ -112,27 +141,27 @@ nav.default {
 .nav-item a {
     padding: 0;
     color: white;
-    text-decoration: none; /* Elimina el subrayado por defecto */
-    border-bottom: 2px solid transparent; /* Línea invisible por defecto */
-    transition: all 0.3s ease; /* Suaviza la transición */
+    text-decoration: none; 
+    border-bottom: 2px solid transparent; 
+    transition: all 0.3s ease; 
 }
   
 .nav-item a:hover {
     color: white;
-    transform: scale(1.2); /* Aumenta el tamaño del enlace */
-    border-bottom: 2px solid #00a4e1; /* Línea visible al hacer hover */
+    transform: scale(1.2); 
+    border-bottom: 2px solid #00a4e1; 
 
 }
 
 .nav-item {
-    margin-right: 50px; /* Ajusta el espacio entre los elementos */
+    margin-right: 50px;
 }
 .nav-item:last-child {
-    margin-right: 0; /* Evita margen extra en el último elemento */
+    margin-right: 0; 
 }
 
 .navbar-toggler-icon {
-    filter: invert(1); /* Cambia a blanco */
+    filter: invert(1); 
 }
 
 .icon-tec:hover{
@@ -144,24 +173,15 @@ nav.default {
 
 }
 
-/* .imagen-circular {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover; 
-} */
-
 
 .textSM-container{
     color: black;
     max-width: 300px; 
     height: 420px;
     padding: 15px; 
-    /* background: linear-gradient(45deg, #79ddff, #4ac0f3, #00a4e1); */
+   
     border-radius: 20px;
-    /* background-color: #081717;
-    border-radius: 20px;
-    box-shadow: 0px 0px 30px 10px rgba(255, 255, 255, 0.058); */
+
 }
 
 .textSM-container:hover{
@@ -171,28 +191,28 @@ nav.default {
 .imagen-circular{
     width: 270px !important;
     height: 270px !important;
-    border-radius: 5%; /* Hace que la imagen sea circular */
-    border: 2px solid transparent; /* Borde rojo de 5px */
+    border-radius: 5%; 
+    border: 2px solid transparent; 
 
 }
 
 .custom-card {
     height: 400px !important;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2) !important;
-    transition: transform 0.3s ease; /* Controla la velocidad y suavidad del efecto */
+    transition: transform 0.3s ease;
     background-color: #00a4e1;
 } 
 
 .custom-card:hover{
-    transform: scale(1.05); /* Aumenta el tamaño al 110% */
+    transform: scale(1.05); 
 }
 
 .custom-card2 {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2) !important;
-    transition: transform 0.3s ease; /* Controla la velocidad y suavidad del efecto */
+    transition: transform 0.3s ease; 
 } 
 
 .custom-card2:hover{
-    transform: scale(1.05); /* Aumenta el tamaño al 110% */
+    transform: scale(1.05);
     
 }
